@@ -219,6 +219,11 @@ body {
   grid-column: span 2; /* Span two columns */
 }
 
+.sketchbook-grid .big {
+  grid-row: span 3;
+  grid-column: span 3;
+}
+
 /* Lightbox */
 .lightbox {
   display: none;
