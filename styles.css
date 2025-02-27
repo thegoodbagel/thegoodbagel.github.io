@@ -1,9 +1,13 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Inter", "Roboto", Arial, sans-serif; /* Modern font stack */
   background-color: white;
   color: black;
+  line-height: 1.6;
 }
 
 /* Home Page */
@@ -29,11 +33,14 @@ body {
 }
 
 .dropdown-item {
+  width: 150px; /* Fixed width */
   padding: 10px 20px;
   margin: 5px;
   border: 1px solid black;
   cursor: pointer;
+  text-align: center; /* Center text */
   transition: transform 0.3s ease;
+  font-weight: 500; /* Medium weight for better readability */
 }
 
 .dropdown-item:hover {
@@ -46,21 +53,53 @@ body {
   margin-top: 50px;
 }
 
+.info-container h1 {
+  font-size: 2.5rem;
+  font-weight: 600; /* Semi-bold for headings */
+}
+
+.info-container button {
+  padding: 10px 20px;
+  font-family: "Inter", "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.info-container button:hover {
+  background-color: #333;
+}
+
 /* Portfolio Page */
 .portfolio-container {
   text-align: center;
 }
 
 .banner {
-  background-image: url("banner.jpg"); /* Add your banner image */
+  background-image: url("/assets/wind.jpg");
   background-size: cover;
   background-position: center;
   padding: 100px 0;
   color: white;
 }
 
+.banner h1 {
+  font-size: 3rem;
+  font-weight: 600; /* Semi-bold for the banner title */
+  margin: 0;
+}
+
 .content {
   padding: 20px;
+}
+
+.content h2 {
+  font-size: 2rem;
+  font-weight: 600; /* Semi-bold for section titles */
+  margin-bottom: 20px;
 }
 
 .image-grid {
