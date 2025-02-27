@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=EB+Garamond:wght@500;600&display=swap");
 
 /* General Styles */
 body {
@@ -8,6 +8,34 @@ body {
   background-color: white;
   color: black;
   line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px 5px 20px;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  font-family: "EB Garamond", serif;
+  font-size: 1.5em;
+}
+
+.navbar.scrolled {
+  background-color: white;
+  color: black;
+}
+
+.navbar a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 /* Home Page */
@@ -20,10 +48,10 @@ body {
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .dropdown {
@@ -33,18 +61,19 @@ body {
 }
 
 .dropdown-item {
-  width: 150px; /* Fixed width */
+  width: 250px; /* Fixed width */
+  font-size: 1.5em;
+  font-family: "EB Garamond", serif;
   padding: 10px 20px;
-  margin: 5px;
+  margin: 10px;
   border: 1px solid black;
   cursor: pointer;
   text-align: center; /* Center text */
-  transition: transform 0.3s ease;
-  font-weight: 500; /* Medium weight for better readability */
+  transition: transform 0.25s ease;
 }
 
 .dropdown-item:hover {
-  transform: scale(1.1);
+  transform: scale(1.07);
 }
 
 /* Info Page */
@@ -75,50 +104,119 @@ body {
 
 /* Portfolio Page */
 .portfolio-container {
-  text-align: center;
-}
-
-.banner {
-  background-image: url("/assets/wind.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 100px 0;
-  color: white;
-}
-
-.banner h1 {
-  font-size: 3rem;
-  font-weight: 600; /* Semi-bold for the banner title */
-  margin: 0;
-}
-
-.content {
+  text-align: left; /* Align content to the left */
+  max-width: 1200px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the container */
   padding: 20px;
 }
 
-.content h2 {
-  font-size: 2rem;
-  font-weight: 600; /* Semi-bold for section titles */
-  margin-bottom: 20px;
+.banner {
+  background-image: url("/assets/Wind.png"); /* Add your banner image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
 }
 
+.banner h1 {
+  font-family: "EB Garamond", serif;
+  font-size: 15rem;
+  font-weight: 200; /* Thin font weight */
+  margin: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Section Headers */
+.content h2 {
+  font-family: "EB Garamond", serif; /* Garamond for section headers */
+  font-size: 2.5rem; /* Large font size */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 10px; /* Space for the separating line */
+}
+
+.content h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black; /* Separating line */
+}
+
+/* Masonry Grid Layout */
 .image-grid {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Adjust minmax values as needed */
+  gap: 30px; /* Adjust gap between images */
+  margin-top: 20px;
 }
 
 .portfolio-image {
-  width: 200px;
-  height: 200px;
+  width: 100%; /* Ensure images take up full width of their grid cell */
+  height: 100%; /* Allow height to adjust based on aspect ratio */
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .portfolio-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+/* Ensure taller images span multiple rows */
+.image-grid .tall {
+  grid-row: span 2; /* Span two rows */
+}
+
+.image-grid .wide {
+  grid-column: span 2; /* Span two columns */
+}
+
+.image-grid .special {
+  grid-row: span 2; /* Span two rows */
+  grid-column: span 2; /* Span two columns */
+}
+
+/* Flatter Rows Grid for Sketchbook Section */
+.sketchbook-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ); /* Adjust minmax values as needed */
+  grid-auto-rows: 300px; /* Fixed row height */
+  gap: 15px; /* Adjust gap between images */
+  margin-top: 20px;
+}
+
+.sketchbook-grid .portfolio-image {
+  width: 100%; /* Ensure images take up full width of their grid cell */
+  height: 100%; /* Ensure images take up full height of their grid cell */
+  object-fit: cover; /* Crop images to fit the grid cell */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.sketchbook-grid .portfolio-image:hover {
+  transform: scale(1.05);
+}
+
+.sketchbook-grid .special {
+  grid-row: span 2; /* Span two rows */
+  grid-column: span 2; /* Span two columns */
 }
 
 /* Lightbox */
