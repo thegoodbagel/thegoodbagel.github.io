@@ -44,14 +44,12 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Dynamically assign classes based on image aspect ratio
-// images.forEach((img) => {
-//   img.onload = () => {
-//     const aspectRatio = img.naturalWidth / img.naturalHeight;
-//     if (aspectRatio < 0.5) {
-//       img.classList.add("tall"); // Tall images
-//     } else if (aspectRatio > 1.5) {
-//       img.classList.add("wide"); // Wide images
-//     }
-//   };
-// });
+document.querySelectorAll(".flower").forEach((img) => {
+  img.addEventListener("click", () => {
+    let stage = parseInt(img.dataset.stage);
+    const name = img.dataset.name;
+    stage = (stage % 4) + 1; // Cycle from 1 to 4
+    img.src = `assets/Leaflet/${name}${stage}.png`;
+    img.dataset.stage = stage;
+  });
+});
