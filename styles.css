@@ -232,7 +232,7 @@ body {
   padding: 10px;
   justify-items: center;
   aspect-ratio: 1 / 1; /* Force 1:1 ratio */
-  max-width: 500px; /* Optional: Set a max width */
+  max-width: 500px; /* Set a max width */
   margin: 0 auto; /* Center the grid */
 }
 
