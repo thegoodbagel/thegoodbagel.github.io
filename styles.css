@@ -164,6 +164,36 @@ body {
   margin-top: 20px;
 }
 
+.image-row {
+  display: flex;
+  flex-wrap: nowrap;         /* keep side by side on larger screens */
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;                 /* spacing between images */
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;          /* avoid any scrollbars */
+  box-sizing: border-box;
+}
+
+.row-image {
+  height: 600px;              /* natural height */
+  width: 100%;               /* base width; flex controls final scaling */
+  max-width: 100%;           /* never exceed container */
+  object-fit: contain;       /* scale without cropping */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.row-image:hover {
+  transform: scale(1.02);
+}
+
+
+.row-image:hover {
+  transform: scale(1.02);
+}
+
 .portfolio-image {
   width: 100%; /* Ensure images take up full width of their grid cell */
   height: 100%; /* Allow height to adjust based on aspect ratio */

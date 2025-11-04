@@ -1,7 +1,7 @@
 // Lightbox functionality
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
-const images = document.querySelectorAll(".portfolio-image");
+const images = document.querySelectorAll(".portfolio-image, .row-image");
 const closeBtn = document.querySelector(".close");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
